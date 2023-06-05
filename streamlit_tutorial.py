@@ -4,6 +4,8 @@
 # In[4]:
 
 
+import pandas as pd
+import numpy as np
 import streamlit as st
 
 # Function to predict output based on user inputs
