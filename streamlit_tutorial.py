@@ -35,7 +35,7 @@ def main():
     asian = (race == "Asian") * 1
     other = (race == "Unknown/Other") * 1
     
-    input_dict = {"P_Score": pirads, "Age at RP": age, "PSA": psa
+    input_dict = {"P_Score": pirads, "Age at RP": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "overall_grade_merged": grade, "race_cat_White": white,
                  "race_cat_Black": black, "race_cat_asian": asian, 
