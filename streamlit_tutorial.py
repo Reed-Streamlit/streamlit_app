@@ -7,10 +7,15 @@
 import streamlit as st
 
 # Function to predict output based on user inputs
-def predict_output(pirads, age, psa, vol, adeno, grade, white, black, asian, hispanic, other):
+def predict_output(input_df):
     # Placeholder implementation
     # Replace this with your trained model's prediction logic
-    return pirads + age + psa + vol + adeno + grade + white + black + asian + hispanic + other
+    
+    #pred = float(LNM_model.predict(input_df))
+    #return pred
+    
+    # dummy "model" for dummy deployment app - June 2023
+    return input_df.sum(axis=1)
 
 def main():
     # Set page title
@@ -24,18 +29,29 @@ def main():
     adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1])
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
     
-    race = st.radio("Race", ("White", "Black", "Asian", "Hispanic", "Other"), horizontal = True)
+    race = st.radio("Race", ("White", "Black", "Asian", "Unknown/Other"), horizontal = True)
     white = (race == "White") * 1
     black = (race == "Black") * 1
     asian = (race == "Asian") * 1
-    hispanic = (race == "Hispanic") * 1
-    other = (race == "Other") * 1
+    other = (race == "Unknown/Other") * 1
     
-    # Predict the output based on user inputs
-    output = predict_output(pirads, age, psa, vol, adeno, grade, white, black, asian, hispanic, other)
+    input_dict = {"P_Score": pirads, "Age at RP": age, "PSA": psa
+                 "prostate_volume": vol, "adenopathy": adeno, 
+                 "overall_grade_merged": grade, "race_cat_White": white,
+                 "race_cat_Black": black, "race_cat_asian": asian, 
+                 "race_cat_Unknown/other": Unknown/Other}
 
-    # Display the predicted output
-    st.write("Predicted Output:", output)
+    input_df = pd.DataFrame([input_dict])
+    
+    center_button = st.button("Estimate")
+    
+    if center_button:
+
+        # Predict the output based on user inputs
+        output = predict_output(input_df)
+   
+        # Display the predicted output
+        st.write("Lymph node metastasis?", output)
 
 if __name__ == "__main__":
     main()
