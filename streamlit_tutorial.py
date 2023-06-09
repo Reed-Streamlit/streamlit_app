@@ -7,17 +7,20 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import pickle
 
 # Function to predict output based on user inputs
 def predict_output(input_df):
     # Placeholder implementation
     # Replace this with your trained model's prediction logic
     
-    #pred = float(LNM_model.predict(input_df))
-    #return pred
+    LNM_model = pickle.load(open('sample_model.sav', 'rb'))
+    # OUTPUT = predicted probability of LNM
+    pred = float(LNM_model.predict(input_df))
+    return pred
     
     # dummy "model" for dummy deployment app - June 2023
-    return input_df.sum(axis=1)
+    #return input_df.sum(axis=1)
 
 def main():
     # Set page title
