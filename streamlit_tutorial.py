@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+import sys
+print(sys.executable)
 
 import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-import sklearn
+#import sklearn
 
 # Function to predict output based on user inputs
 def predict_output(input_df):
