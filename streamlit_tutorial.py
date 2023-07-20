@@ -12,7 +12,10 @@ def predict_output(input_df):
     # Placeholder implementation
     # Replace this with your trained model's prediction logic
     
-    LNM_model = pickle.load(open('sample_model.sav', 'rb'))
+    #LNM_model = pickle.load(open('sample_model.sav', 'rb'))
+    LNM_model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
+    print(type(LNM_model))
+
     # OUTPUT = predicted probability of LNM
     pred = float(LNM_model.predict(input_df))
     return pred
@@ -31,18 +34,17 @@ def main():
     vol = st.number_input("Prostate volume (cm^3)", min_value=10.0, max_value=200.0, value=10.0)
     adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1])
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
+    white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1])
     
-    race = st.radio("Race", ("White", "Black", "Asian", "Unknown/Other"), horizontal = True)
-    white = (race == "White") * 1
-    black = (race == "Black") * 1
-    asian = (race == "Asian") * 1
-    other = (race == "Unknown/Other") * 1
+    #race = st.radio("Race", ("White", "Black", "Asian", "Unknown/Other"), horizontal = True)
+    #white = (race == "White") * 1
+    #black = (race == "Black") * 1
+    #asian = (race == "Asian") * 1
+    #other = (race == "Unknown/Other") * 1
     
-    input_dict = {"P_Score": pirads, "Age at RP": age, "PSA": psa,
+    input_dict = {"P_Score": pirads, "age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
-                 "overall_grade_merged": grade, "race_cat_White": white,
-                 "race_cat_Black": black, "race_cat_asian": asian, 
-                 "race_cat_Unknown/other": other}
+                 "grade_prostate_bx": grade, "white_race": white}
 
     input_df = pd.DataFrame([input_dict])
     
