@@ -1,11 +1,11 @@
-mkdir -p ~/.streamlit/
+# mkdir -p ~/.streamlit/
 
-echo "\
-[server]\n\
-headless = true\n\
-port = $PORT\n\
-enableCORS = false\n\
-\n\
-" > ~/.streamlit/config.toml
+# echo "\
+# [server]\n\
+# headless = true\n\
+# port = $PORT\n\
+# enableCORS = false\n\
+# \n\
+# " > ~/.streamlit/config.toml
 
-pip install -r requirements.txt
+# pip install -r requirements.txt
