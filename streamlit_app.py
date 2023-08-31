@@ -1,10 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# always will need imports
+# to use streamlit
+import streamlit as st
+# to decode model from binary file (.sav)
+import pickle
+
+# model specific imports 
+# specify version requirements in requirements.txt file
 import pandas as pd
 import numpy as np
-import streamlit as st
-import pickle
 import sklearn
 # import scikit-learn
 
@@ -14,8 +20,9 @@ def predict_output(input_df):
     # Replace this with your trained model's prediction logic
     
     #LNM_model = pickle.load(open('sample_model.sav', 'rb'))
+    #make sure first input is relative path to model file
     LNM_model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
-    print(type(LNM_model))
+    #print(type(LNM_model))
 
     # OUTPUT = predicted probability of LNM
     pred = float(LNM_model.predict(input_df))
