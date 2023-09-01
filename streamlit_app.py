@@ -11,8 +11,8 @@ import pickle
 # specify version requirements in requirements.txt file
 import pandas as pd
 import numpy as np
-# import sklearn
-import scikit_learn
+import sklearn
+# import scikit_learn
 
 # Function to predict output based on user inputs
 def predict_output(input_df):
