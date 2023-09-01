@@ -11,25 +11,26 @@ import pickle
 # specify version requirements in requirements.txt file
 import pandas as pd
 import numpy as np
-import sklearn
-# import scikit-learn
+# import sklearn
+import scikit_learn
 
 # Function to predict output based on user inputs
 def predict_output(input_df):
     # Placeholder implementation
     # Replace this with your trained model's prediction logic
     
-    #LNM_model = pickle.load(open('sample_model.sav', 'rb'))
     #make sure first input is relative path to model file
+    #IMPORTANT: Make sure the file you are loading is one you trust
+    #don't open random pickled files off the internet as they could
+    #be malware
+    #see more here: https://docs.python.org/3/library/pickle.html
     LNM_model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
-    #print(type(LNM_model))
+    # got error: ReadstatError: Invalid file, or file has unsupported features
+    # LNM_model = pd.read_spss('rnd_clf_opt_rndcv.sav')
 
     # OUTPUT = predicted probability of LNM
     pred = float(LNM_model.predict(input_df))
     return pred
-    
-    # dummy "model" for dummy deployment app - June 2023
-    #return input_df.sum(axis=1)
 
 def main():
     # Set page title
