@@ -14,7 +14,7 @@ So if you would like to avoid that, I would recommend creating another
 github account, which you will need another email for.
 
 <details>
-<summary>For gmail users</summary>
+<summary>Tip for gmail users</summary>
 <br>
 Google will ignore text between the + and @ sign, for instance
 user@gmail.com and user+all-text-here-is-ignored@gmail.com will both be treated
