@@ -11,12 +11,18 @@ it requires you to link your GitHub account, giving it permission to read all pu
 as repos of any organizations your GitHub is linked to.
 
 So if you would like to avoid that, I would recommend creating another
-github account, which you will need another email for (I think for gmail users you
-can just add a + and google will ignore text between the + and @ sign, for instance
+github account, which you will need another email for.
+
+<details>
+<summary>For gmail users</summary>
+<br>
+Google will ignore text between the + and @ sign, for instance
 user@gmail.com and user+all-text-here-is-ignored@gmail.com will both be treated
-as user@gmail.com by google but will be treated differently ny github, meaning you can
+as user@gmail.com by google but will be treated differently by github, meaning you can
 make different acdounts with those email addresses even though emails sent to either will
 end up in the same inbox.
+</details>
+
 
 After setting up the second account, you want to fork the repo while logged in as the second account,
 making the second account the owner of the repo.
