@@ -1,11 +1,29 @@
 # Streamlit Tutorial
+## Minimum to Deployment
+<ol>
+  <li> Fork this repo</li>
+  <li> Add model to repo (.sav file) and make sure that its name matches in the streamlit-app.py file. </li>
+  <li> Update the streamlit input components in the streamlit-app.py file. </li>
+  <li> Go to https://share.streamlit.io/ and grant streamlit github authorization permission. </li> 
+</ol>
+<!-- Not sure why the formatting isn't working here -- see https://github.com/orgs/community/discussions/16925 -->
+<!-- Also add picture here -->
+> **Important**
+> This will give streamlit permission to view ALL files in ALL repos that your account and any organization your account is connected to. If you don't want to have that happen and still want to use streamlit, then I'd recommend following [these instructions](#setting-up-a-second-account)
+
+<ol start="5">
+  <!-- add pictures here -->
+  
+  <li> Once authorized, the webpage displays your apps. Create a new app using the updated forked repo. </li>
+  <li> Streamlit servers will build the app using the environment details listed in the requirements.txt file </li>
+</ol>
 
 
 ## Getting Started
 First thing that you'll need to do is make a github account so that you can fork the repo (essentially making your own separate copy).
 Secondly you will want to fork the repo.
 
-## Getting It Online (via Streamlit Cloud Deployment)
+## Setting Up A Second Account
 Streamlit cloud makes it very easy to create a publicly accessible website, however to do that
 it requires you to link your GitHub account, giving it permission to read all public and private repos as well
 as repos of any organizations your GitHub is linked to.
