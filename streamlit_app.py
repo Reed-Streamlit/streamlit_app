@@ -1,36 +1,38 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# always will need imports
-# to use streamlit
 import streamlit as st
-# to decode model from binary file (.sav)
 import pickle
-
-# model specific imports 
-# specify version requirements in requirements.txt file
 import pandas as pd
 import numpy as np
 import sklearn
 
-# Function to predict output based on user inputs
-def predict_output(input_df):
-    # Placeholder implementation
-    # Replace this with your trained model's prediction logic
+model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
+def format_model_input(df):
+    return df.values
+
+def format_model_output(pred):
+    return pred[0]
     
-    #make sure first input is relative path to model file
-    #IMPORTANT: Make sure the file you are loading is one you trust
-    #don't open random pickled files off the internet as they could
-    #be malware
-    #see more here: https://docs.python.org/3/library/pickle.html
-    LNM_model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
+def predict_output(input_df):
+    """
+    Args:
+        a dataframe containing values from the inputs selected by the user
+    Returns:
+        output of model prediction as determined by the format_model_output function
+    """
+    formatted_input = format_model_input(input_df)
+    pred = model.predict(formatted_input)
+    return format_model_output(pred)
 
-    output = LNM_model.predict(input_df)
-    pred = float(LNM_model.predict(input_df))
-    return pred
-
-def create_inputs():
-    # Set page title
+def create_user_inputs():
+    """
+    Generates and formats all inputs user sees on page, outputs the values to be passed to model for prediction.
+    
+    Returns:
+        a dataframe containing values from the inputs selected by the user
+    """
+    
     st.title("Numerical Output Prediction")
 
     pirads = st.selectbox("PIRADS score", options=[1, 2, 3, 4, 5])
@@ -41,25 +43,20 @@ def create_inputs():
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
     white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1])
     
-    #race = st.radio("Race", ("White", "Black", "Asian", "Unknown/Other"), horizontal = True)
-    #white = (race == "White") * 1
-    #black = (race == "Black") * 1
-    #asian = (race == "Asian") * 1
-    #other = (race == "Unknown/Other") * 1
-    
     input_dict = {"P_Score": pirads, "age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "grade_prostate_bx": grade, "white_race": white}
     
-    return input_dict
+    return pd.DataFrame([input_dict])
+
+
 
 def main():
-    input_dict = create_inputs()
-    input_df = pd.DataFrame([input_dict])
+    user_input_df = create_user_inputs()
     center_button = st.button("Estimate")
     
     if center_button:
-        output = predict_output(input_df)
+        output = predict_output(user_input_df)
         st.write("Lymph node metastasis?", output)
 
 if __name__ == "__main__":
