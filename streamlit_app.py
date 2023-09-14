@@ -54,6 +54,8 @@ def create_user_inputs():
 
 def main():
     user_input_df = create_user_inputs()
+    print("without: ", user_input_df)
+    print("values: ", user_input_df.values)
     center_button = st.button("Estimate")
     
     if center_button:
