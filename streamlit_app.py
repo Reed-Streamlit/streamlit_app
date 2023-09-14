@@ -4,10 +4,14 @@
 import streamlit as st
 import pickle
 import pandas as pd
+
+#packages not directly referenced in this script but used by 'rnd_clf_opt_rndcv.sav':
 import numpy as np
 import sklearn
 
+#unpickling model
 model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
+
 def format_model_input(df):
     #return df.values
     return df
@@ -15,7 +19,7 @@ def format_model_input(df):
 def format_model_output(pred):
     return pred[0]
     
-def predict_output(input_df):
+def predict_output(input_df: pd.DataFrame) -> float:
     """
     Args:
         a dataframe containing values from the inputs selected by the user
@@ -44,7 +48,7 @@ def create_user_inputs():
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
     white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1])
     
-    input_dict = {"age_rp": age, "PSA": psa,
+    input_dict = {"P_Score": pirads, "age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "grade_prostate_bx": grade, "white_race": white}
     
@@ -54,8 +58,6 @@ def create_user_inputs():
 
 def main():
     user_input_df = create_user_inputs()
-    print("without: ", user_input_df)
-    print("values: ", user_input_df.values)
     center_button = st.button("Estimate")
     
     if center_button:
