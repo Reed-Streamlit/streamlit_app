@@ -12,7 +12,6 @@ import pickle
 import pandas as pd
 import numpy as np
 import sklearn
-# import scikit_learn
 
 # Function to predict output based on user inputs
 def predict_output(input_df):
@@ -29,8 +28,12 @@ def predict_output(input_df):
     # LNM_model = pd.read_spss('rnd_clf_opt_rndcv.sav')
 
     # OUTPUT = predicted probability of LNM
+    output = LNM_model.predict(input_df)
     pred = float(LNM_model.predict(input_df))
     return pred
+
+def setup_inputs():
+
 
 def main():
     # Set page title

@@ -8,8 +8,11 @@
 </ol>
 <!-- Not sure why the formatting isn't working here -- see https://github.com/orgs/community/discussions/16925 -->
 <!-- Also add picture here -->
-> **Important**
-> This will give streamlit permission to view ALL files in ALL repos that your account and any organization your account is connected to. If you don't want to have that happen and still want to use streamlit, then I'd recommend following [these instructions](#setting-up-a-second-account)
+<details> 
+<summary> Important Note </summary>
+This will give streamlit permission to view ALL files in ALL repos that your account and any organization your account is connected to. If you don't want to have that happen and still want to use streamlit, then I'd recommend following [these instructions](#setting-up-a-second-account)
+</details>
+
 
 <ol start="5">
   <!-- add pictures here -->
@@ -18,6 +21,14 @@
   <li> Streamlit servers will build the app using the environment details listed in the requirements.txt file </li>
 </ol>
 
+## Benefits of Streamlit
+<ol>
+  <li> Fast easy setup </li>
+  <li> Only need one language -- Python </li>
+  <li> Model is loaded directly onto user's computer so potentially confidential form data is not sent over internet/stored anywhere. </li>
+  <li> Link permissions are modifiable - can change whether model is publicly accesible or if authentication is needed  </li>
+  <li> Free web hosting </li>
+</ol>
 
 ## Getting Started
 First thing that you'll need to do is make a github account so that you can fork the repo (essentially making your own separate copy).
