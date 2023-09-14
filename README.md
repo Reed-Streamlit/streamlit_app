@@ -1,5 +1,15 @@
 # Streamlit Tutorial
-## Minimum to Deployment
+## Live Site Example
+https://lnmpredictor.streamlit.app/
+## Essential Files
+You will need at least three files to deploy:
+<ol>
+  <li> Model File -- Typically a ".sav" file, can use more than one, just make sure to modify the main python script. </li>
+  <li> requirements.txt -- Make sure this is lowercase and spelled correctly, it specifies dependencies and their versions needed by the app and model.</li>
+  <li> streamlit_app.py -- Streamlit needs a Python script to run, name has to match name entered when creating app on share.streamlit.io </li>
+</ol>
+
+## Minimum Steps to Deployment
 <ol>
   <li> Fork this repo</li>
   <li> Add model to repo (.sav file) and make sure that its name matches in the streamlit-app.py file. </li>
