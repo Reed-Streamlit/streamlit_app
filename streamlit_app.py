@@ -46,7 +46,7 @@ def main():
     center_button = st.button("Estimate")
     
     if center_button: #if button is clicked
-        output = model.predict(input_df)
+        output = model.predict(user_input_df)
         st.write(OUTPUT_MSG, output)
 
 if __name__ == "__main__":
