@@ -44,7 +44,7 @@ def create_user_inputs():
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
     white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1])
     
-    input_dict = {"random": pirads, "age_rp": age, "PSA": psa,
+    input_dict = {"age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "grade_prostate_bx": grade, "white_race": white}
     
