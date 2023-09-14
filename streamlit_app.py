@@ -9,7 +9,8 @@ import sklearn
 
 model = pickle.load(open('rnd_clf_opt_rndcv.sav', 'rb'))
 def format_model_input(df):
-    return df.values
+    #return df.values
+    return df
 
 def format_model_output(pred):
     return pred[0]
