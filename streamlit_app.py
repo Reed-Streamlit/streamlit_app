@@ -46,6 +46,9 @@ def main():
     center_button = st.button("Estimate")
     
     if center_button: #if button is clicked
+        #currently there is a warning that doesn't affect behavior:
+        #UserWarning: X has feature names, but RandomForestClassifier was fitted without feature names
+        #can change user_input_df to user_input_df.values to remove the warning
         output = model.predict(user_input_df)
         st.write(OUTPUT_MSG, output)
 
