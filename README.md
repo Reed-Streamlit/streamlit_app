@@ -19,7 +19,7 @@ These three files are essential to to deploy:
 
 <details> 
 <summary> Important Note About Granting Streamlit Github Authorization Permissions </summary>
-This will give streamlit permission to view ALL files in ALL repos that your account and any organization your account is connected to. If you don't want to have that happen and still want to use streamlit, then I'd recommend forking the project from the second account and then adding your primary account as a collaborator.
+This will give streamlit permission to view ALL files in ALL repos from your account and from any organization your account is connected to. If you don't want to have that happen and still want to use streamlit, then I'd recommend forking the project from the second account and then adding your primary account as a collaborator.
 </details>
 
 <ol start="5">
