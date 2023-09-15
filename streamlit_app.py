@@ -23,7 +23,7 @@ def create_user_inputs() -> pd.DataFrame:
     """
     
     st.title("Numerical Output Prediction")
-        
+    
     pirads = st.selectbox("PIRADS score", options=[1, 2, 3, 4, 5])
     age = st.number_input("Age", min_value=0, max_value=120, value=60)
     psa = st.number_input("PSA (ng/mL)", min_value=0.0, value=1.0)
