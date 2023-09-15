@@ -34,6 +34,7 @@ def create_user_inputs() -> pd.DataFrame:
         adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1], horizontal = True)
         grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
         white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1], horizontal = True)
+        center_button = st.button("Estimate")
     
     input_dict = {"P_Score": pirads, "age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
@@ -44,15 +45,14 @@ def create_user_inputs() -> pd.DataFrame:
 def main():
     #unpickling model
     model = pickle.load(open(MODEL_NAME, 'rb'))
-    user_input_df = create_user_inputs()
-    center_button = st.button("Estimate")
+    user_input_df, center_button = create_user_inputs()
     
     if center_button: #if button is clicked
         #currently there is a warning that doesn't affect behavior:
         #UserWarning: X has feature names, but RandomForestClassifier was fitted without feature names
         #can change user_input_df to user_input_df.values to remove the warning
         output = model.predict(user_input_df)
-        st.write(OUTPUT_MSG, output)
+        st.write(OUTPUT_MSG, output[0])
 
 if __name__ == "__main__":
     main()
