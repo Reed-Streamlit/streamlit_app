@@ -28,7 +28,7 @@ def create_user_inputs() -> pd.DataFrame:
     age = st.number_input("Age", min_value=0, max_value=120, value=60)
     psa = st.number_input("PSA (ng/mL)", min_value=0.0, value=1.0)
     
-    vol = st.number_input("Prostate volume (cm^3)", min_value=10.0, max_value=200.0, value=10.0)
+    vol = st.number_input("Prostate volume (cm\u00b2)", min_value=10.0, max_value=200.0, value=10.0)
     adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1])
     grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
     white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1])
