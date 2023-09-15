@@ -24,28 +24,26 @@ def create_user_inputs() -> pd.DataFrame:
     
     st.title("Numerical Output Prediction")
 
-    _left_buffer, main_col, _right_buffer = st.columns([1,3,1])
-    with main_col:
-        pirads = st.selectbox("PIRADS score", options=[1, 2, 3, 4, 5])
-        age = st.number_input("Age", min_value=0, max_value=120, value=60)
-        psa = st.number_input("PSA (ng/mL)", min_value=0.0, value=1.0)
-        
-        vol = st.number_input("Prostate volume (cm\u00b3)", min_value=10.0, max_value=200.0, value=10.0)
-        adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1], horizontal = True)
-        grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
-        white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1], horizontal = True)
-        center_button = st.button("Estimate")
+    pirads = st.selectbox("PIRADS score", options=[1, 2, 3, 4, 5])
+    age = st.number_input("Age", min_value=0, max_value=120, value=60)
+    psa = st.number_input("PSA (ng/mL)", min_value=0.0, value=1.0)
+    
+    vol = st.number_input("Prostate volume (cm\u00b3)", min_value=10.0, max_value=200.0, value=10.0)
+    adeno = st.radio("Adenopathy? (0=No/1=Yes)", options=[0, 1], horizontal = True)
+    grade = st.selectbox("Biopsy grade", options=[1, 2, 3, 4, 5])
+    white = st.radio("Race: white? (0=No/1=Yes)", options=[0, 1], horizontal = True)
     
     input_dict = {"P_Score": pirads, "age_rp": age, "PSA": psa,
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "grade_prostate_bx": grade, "white_race": white}
     
-    return pd.DataFrame([input_dict]), center_button
+    return pd.DataFrame([input_dict])
 
 def main():
     #unpickling model
     model = pickle.load(open(MODEL_NAME, 'rb'))
-    user_input_df, center_button = create_user_inputs()
+    user_input_df = create_user_inputs()
+    center_button = st.button("Estimate")
     
     if center_button: #if button is clicked
         #currently there is a warning that doesn't affect behavior:
