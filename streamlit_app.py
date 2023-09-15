@@ -24,7 +24,7 @@ def create_user_inputs() -> pd.DataFrame:
     
     st.title("Numerical Output Prediction")
 
-    _left_buffer, main_col, _right_buffer = st.cols([1,3,1])
+    _left_buffer, main_col, _right_buffer = st.columns([1,3,1])
     with main_col:
         pirads = st.selectbox("PIRADS score", options=[1, 2, 3, 4, 5])
         age = st.number_input("Age", min_value=0, max_value=120, value=60)
