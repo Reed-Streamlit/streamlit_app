@@ -40,7 +40,7 @@ def create_user_inputs() -> pd.DataFrame:
                  "prostate_volume": vol, "adenopathy": adeno, 
                  "grade_prostate_bx": grade, "white_race": white}
     
-    return pd.DataFrame([input_dict])
+    return pd.DataFrame([input_dict]), center_button
 
 def main():
     #unpickling model
