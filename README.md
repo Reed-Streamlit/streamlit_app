@@ -38,7 +38,12 @@ This will give streamlit permission to view ALL files in ALL repos from your acc
 
 ## Troubleshooting Tips
 <ol>
-  <li>Make sure requirements.txt is spelled correctly and not in a subfolder. </li>
-  <li>Scikit-Learn has In streamlit_app.py import sklearn, but in requirements.txt use scikit-learn. </li>
-  <li>If there still are errors, inspect the console on the live link, find the specific error message, copy it and put it surrounded by quotes in a search engine and hopefully there will be forumn posts that can help you resolve the issue. For Example: "ValueError: node array from the pickle has an incompatible dtype" lead us to reading that the scikit-learn version needed to be fixed in requirments.txt from this blog post: https://discuss.streamlit.io/t/valueerror-node-array-from-the-pickle-has-an-incompatible-dtype/46682</li>
+  <li> Make sure requirements.txt is spelled correctly and not in a subfolder. </li>
+  <li> Scikit-Learn has In streamlit_app.py import sklearn, but in requirements.txt use scikit-learn. </li>
+  <li> If there still are errors, inspect the console on the live link, find the specific error message, copy it and put it surrounded by quotes in a search engine and hopefully there will be forumn posts that can help you resolve the issue.
+      <ul>
+        <li> For Example: "ValueError: node array from the pickle has an incompatible dtype" lead us to reading that the scikit-learn version needed to be fixed in requirments.txt from this blog post: https://discuss.streamlit.io/t/valueerror-node-array-from-the-pickle-has-an-incompatible-dtype/46682 
+        </li>
+      </ul>
+  </li>
 </ol>
